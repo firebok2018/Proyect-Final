@@ -1,0 +1,22 @@
+package utils;
+
+import java.applet.AudioClip;
+import java.awt.print.Paper;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+
+import javax.sound.sampled.AudioInputStream;
+import javax.swing.JOptionPane;
+
+public class re {
+
+	public static void main(String[] args) {
+		
+		String response = JOptionPane.showInputDialog(null, "Input:", ""); 
+		if ((response != null) && (response.length() > 0)) { 
+
+		} 
+		
+	}
+
+}

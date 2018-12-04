@@ -1,0 +1,61 @@
+package ui;
+
+import java.awt.BorderLayout;
+import java.awt.FlowLayout;
+
+import javax.swing.JButton;
+import javax.swing.JDialog;
+import javax.swing.JPanel;
+import javax.swing.border.EmptyBorder;
+import javax.swing.JLabel;
+import java.awt.Color;
+import java.awt.Font;
+
+public class About extends JDialog {
+	private JLabel lblSistemaDeRegistro;
+	private JLabel lblRestaurantAltamar;
+	private JLabel lblVersion;
+	private JLabel lblNewLabel;
+
+	/**
+	 * Launch the application.
+	 */
+	public static void main(String[] args) {
+		try {
+			About dialog = new About();
+			dialog.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
+			dialog.setVisible(true);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+
+	/**
+	 * Create the dialog.
+	 */
+	public About() {
+		getContentPane().setBackground(Color.WHITE);
+		setBackground(Color.WHITE);
+		setBounds(100, 100, 450, 300);
+		getContentPane().setLayout(null);
+		
+		lblSistemaDeRegistro = new JLabel("Sistema de Registro y Venta Restaurant Altmar.");
+		lblSistemaDeRegistro.setFont(new Font("Arial Black", Font.BOLD, 12));
+		lblSistemaDeRegistro.setBounds(29, 11, 395, 42);
+		getContentPane().add(lblSistemaDeRegistro);
+		
+		lblRestaurantAltamar = new JLabel("Restaurant Altamar   V 1.5");
+		lblRestaurantAltamar.setBounds(121, 65, 149, 14);
+		getContentPane().add(lblRestaurantAltamar);
+		
+		lblVersion = new JLabel("Version:");
+		lblVersion.setFont(new Font("Tahoma", Font.BOLD, 11));
+		lblVersion.setBounds(26, 65, 60, 14);
+		getContentPane().add(lblVersion);
+		
+		lblNewLabel = new JLabel("https://wa.me/51963240825");
+	//	lblNewLabel.se
+		lblNewLabel.setBounds(109, 93, 173, 14);
+		getContentPane().add(lblNewLabel);
+	}
+}

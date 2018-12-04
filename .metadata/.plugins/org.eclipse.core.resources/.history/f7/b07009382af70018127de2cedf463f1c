@@ -1,0 +1,44 @@
+package utils;
+
+import java.applet.AudioClip;
+import java.awt.print.Paper;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+
+import javax.sound.sampled.AudioInputStream;
+import javax.swing.JOptionPane;
+
+import javazoom.jlgui.basicplayer.BasicPlayer;
+
+public class re {
+
+	
+		
+		
+
+		public void fg(String file){
+
+		    try {
+
+		            BasicPlayer sonido = new BasicPlayer();
+
+		            sonido.open(new File(file));
+
+		            sonido.play();
+
+		     } catch (Exception e) {
+		            
+		            System.out.println(e);
+
+		     }
+
+		}   
+		
+		
+		
+		
+		
+	
+
+}

@@ -1,0 +1,49 @@
+package ui;
+
+import java.awt.BorderLayout;
+import java.awt.FlowLayout;
+
+import javax.swing.JButton;
+import javax.swing.JDialog;
+import javax.swing.JPanel;
+import javax.swing.border.EmptyBorder;
+import javax.swing.JLabel;
+
+public class Ayuda extends JDialog {
+	private JLabel lblSistemaDeRegistro;
+	private JLabel lblRestaurantAltamar;
+	private JLabel lblVersion;
+
+	/**
+	 * Launch the application.
+	 */
+	public static void main(String[] args) {
+		try {
+			Ayuda dialog = new Ayuda();
+			dialog.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
+			dialog.setVisible(true);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+
+	/**
+	 * Create the dialog.
+	 */
+	public Ayuda() {
+		setBounds(100, 100, 450, 300);
+		getContentPane().setLayout(null);
+		
+		lblSistemaDeRegistro = new JLabel("Sistema de Registro y Venta");
+		lblSistemaDeRegistro.setBounds(178, 28, 165, 14);
+		getContentPane().add(lblSistemaDeRegistro);
+		
+		lblRestaurantAltamar = new JLabel("Restaurant Altamar   V 1.5");
+		lblRestaurantAltamar.setBounds(82, 65, 149, 14);
+		getContentPane().add(lblRestaurantAltamar);
+		
+		lblVersion = new JLabel("Version:");
+		lblVersion.setBounds(26, 65, 46, 14);
+		getContentPane().add(lblVersion);
+	}
+}

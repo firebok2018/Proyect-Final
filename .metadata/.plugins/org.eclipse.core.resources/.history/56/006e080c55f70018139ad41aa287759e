@@ -1,0 +1,54 @@
+package ConexionDatabase;
+
+import java.sql.CallableStatement;
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
+import javax.swing.JTable;
+import javax.swing.table.DefaultTableModel;
+
+import utils.Conexion;
+
+public class Consultas {
+
+	public void ListarPro(JTable j,String x) {
+		Connection con= null;
+		CallableStatement callsp=null;
+		ResultSet rs=null;
+		DefaultTableModel modelo= new DefaultTableModel();
+		modelo.addColumn("Codigo");
+		modelo.addColumn("Nombre");
+		modelo.addColumn("Tipo");
+		modelo.addColumn("Stock");
+		modelo.addColumn("Precio");
+		j.setModel(modelo);
+		String [] xm= new String[6];
+		try {
+			con= new Conexion().getConexion();
+			String u_sp="{call consultaCli(?) }";
+			callsp= con.prepareCall(u_sp);
+			callsp.setString(1, rs.getString(1));
+			rs= callsp.executeQuery();
+			//String est="Menu";
+			while (rs.next()) {
+			
+				xm[0]=rs.getString(1);
+				xm[1]=rs.getString(2);
+				xm[2]=rs.getInt(3)+""; 
+				xm[3]=rs.getInt(4)+"";
+				xm[4]="S/. "+rs.getDouble(5)+"";
+				
+
+				
+				modelo.addRow(xm);
+				
+			}
+		} catch (SQLException e) {
+			// TODO: handle exception
+			System.out.println(e.getMessage()+e.getErrorCode());
+			System.out.println("Error de Listado");
+		}
+		
+	}
+}

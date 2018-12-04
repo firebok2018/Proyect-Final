@@ -1,0 +1,21 @@
+package utils;
+
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
+import javax.swing.JOptionPane;
+
+public class ValidacionEmail {
+	   public static void main(String[] args) throws Exception {                
+		 
+		   String email=JOptionPane.showInputDialog("Ingrse em,ail");
+		   String regex = "^[\\w!#$%&'*+/=?`{|}~^-]+(?:\\.[\\w!#$%&'*+/=?`{|}~^-]+)*@(?:[a-zA-Z0-9-]+\\.)+[a-zA-Z]{2,6}$";
+		    
+		   Pattern pattern = Pattern.compile(regex);
+		    
+		
+		       Matcher matcher = pattern.matcher(email);
+		       System.out.println(email +" No se  un Coorreo "+ matcher.matches());
+		   
+	   }
+	}

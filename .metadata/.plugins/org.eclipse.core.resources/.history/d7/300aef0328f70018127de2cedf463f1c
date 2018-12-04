@@ -1,0 +1,37 @@
+package utils;
+
+import java.applet.AudioClip;
+import java.awt.print.Paper;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+
+import javax.sound.sampled.AudioInputStream;
+import javax.swing.JOptionPane;
+
+public class re {
+
+	public static void main(String[] args) {
+		
+		Object[] options = {"Yes, please", "No way!"}; 
+		int n = JOptionPane.showOptionDialog(null, 
+			       "Would you like green eggs and ham?", 
+			       "A Silly Question", 
+			       JOptionPane.YES_NO_OPTION, 
+			       JOptionPane.QUESTION_MESSAGE, 
+			       null, 
+			       options, 
+			       options[0]); 
+			if (n == JOptionPane.YES_OPTION) { 
+
+			} else if (n == JOptionPane.NO_OPTION) { 
+
+			} else { 
+
+			} 
+		
+	
+			
+		
+	}
+
+}

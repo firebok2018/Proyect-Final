@@ -1,0 +1,90 @@
+package ui;
+
+import java.awt.EventQueue;
+
+import javax.swing.JDialog;
+import javax.swing.JButton;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
+import java.awt.Color;
+import javax.swing.JLabel;
+import javax.swing.ImageIcon;
+import javax.swing.border.MatteBorder;
+
+public class Alerte extends JDialog implements ActionListener {
+	private JButton btnIniciarSesin;
+	private JButton btnCerrarSistema;
+	private JLabel label;
+
+	/**
+	 * Launch the application.
+	 */
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					Alerte dialog = new Alerte();
+					dialog.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
+					dialog.setVisible(true);
+					dialog.setLocationRelativeTo(dialog);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+
+	/**
+	 * Create the dialog.
+	 */
+	public Alerte() {
+		setUndecorated(true);
+		getContentPane().setBackground(new Color(224, 255, 255));
+		setBounds(100, 100, 563, 423);
+		getContentPane().setLayout(null);
+		
+		btnIniciarSesin = new JButton("Iniciar Sesi\u00F3n");
+		btnIniciarSesin.addActionListener(this);
+		btnIniciarSesin.setBorder(new MatteBorder(1, 1, 1, 1, (Color) new Color(205, 133, 63)));
+		btnIniciarSesin.setFocusable(false);
+		btnIniciarSesin.setBackground(new Color(255, 255, 255));
+		btnIniciarSesin.setBounds(116, 330, 116, 33);
+		getContentPane().add(btnIniciarSesin);
+		
+		btnCerrarSistema = new JButton("Cerrar Sistema");
+		btnCerrarSistema.setBorder(new MatteBorder(1, 1, 1, 1, (Color) new Color(205, 133, 63)));
+		btnCerrarSistema.setFocusable(false);
+		btnCerrarSistema.setBackground(new Color(255, 255, 255));
+		btnCerrarSistema.addActionListener(this);
+		btnCerrarSistema.setBounds(297, 330, 116, 33);
+		getContentPane().add(btnCerrarSistema);
+		
+		label = new JLabel("");
+		label.setIcon(new ImageIcon(Alerte.class.getResource("/imagen/alerta.png")));
+		label.setBounds(142, 44, 290, 263);
+		getContentPane().add(label);
+
+	}
+	public void actionPerformed(ActionEvent arg0) {
+		if (arg0.getSource() == btnIniciarSesin) {
+			actionPerformedBtnIniciarSesin(arg0);
+		}
+		if (arg0.getSource() == btnCerrarSistema) {
+			actionPerformedBtnCerrarSistema(arg0);
+		}
+	}
+	protected void actionPerformedBtnCerrarSistema(ActionEvent arg0) {
+		System.exit(ABORT);
+	}
+	
+	protected void actionPerformedBtnIniciarSesin(ActionEvent arg0) {
+		this.dispose();
+		FrmPrincipal p=new FrmPrincipal();
+		p.setVisible(!true);
+		this.dispose();
+		FrmSign_In xd= new FrmSign_In();
+		xd.setVisible(true);
+		xd.setLocationRelativeTo(xd);
+	}
+	
+}

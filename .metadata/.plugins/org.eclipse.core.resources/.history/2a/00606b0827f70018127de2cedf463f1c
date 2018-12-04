@@ -1,0 +1,20 @@
+package utils;
+
+import java.applet.AudioClip;
+import java.awt.print.Paper;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+
+public class re {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		AudioClip p;
+		p=java.applet.Applet.newAudioClip(p.getClass().getResource("/utils/alerta.mp3"));
+		p.play();
+	
+			
+		
+	}
+
+}

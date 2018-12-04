@@ -1,0 +1,100 @@
+package utils;
+import sun.audio.*;
+import java.io.*;
+import java.net.URL;
+
+public class FuncionalidadSonido extends Thread {
+        private InputStream in;
+        AudioStream as = null;
+        
+
+        /**
+         * Depende el parametro que recibe el constructor suena una cosa u otra.
+         * 
+         * @param pTipoSonido
+         *            - error - dialogo - boton - inicio
+         * @throws IOException
+         */
+        public FuncionalidadSonido(String pTipoSonido) throws IOException {
+                if(pTipoSonido == null){
+                        return;
+                }
+                // inn = new InputStream[3];
+                if (pTipoSonido.equals("error")) {
+                        // in = new
+                        // FileInputStream(getClass().getResource("/sonidos/dialogo-error.wav").toString());
+                        in = new FileInputStream("src/sonidos/dialogo-error.wav");
+                } else if (pTipoSonido.equals("dialogo")) {
+                        // in = new
+                        // FileInputStream(getClass().getResource("/sonidos/dialog-pregunta.wav").toString());
+                        in = new FileInputStream("src/sonidos/dialog-pregunta.wav");
+                } else if (pTipoSonido.equals("boton")) {
+                        // in = new
+                        // FileInputStream(getClass().getResource("/sonidos/boton.wav").toString());
+                        in = new FileInputStream("src/sonidos/boton.wav");
+                } else if (pTipoSonido.equals("inicio")) {
+                        // in = new
+                        // FileInputStream(getClass().getResource("/sonidos/inicio.wav").toString());
+                        in = new FileInputStream("src/sonidos/inicio.wav");
+                } else {
+                        // in = new
+                        // FileInputStream(getClass().getResource("/sonidos/boton.wav").toString());
+                        in = new FileInputStream("src/sonidos/boton.wav");
+
+                }
+                as = new AudioStream(in);
+
+        }
+
+        public void run() {
+
+                AudioPlayer.player.start(as);
+
+        }
+
+        /**
+         * sustituye al metodo stop que esta deprecated. El thread sigue funcionando
+         * pero el sonido se corta.
+         */
+        public void pararActual() {
+                AudioPlayer.player.stop(as);
+        }
+
+        public void sonidoBoton() {
+                try {
+                        new FuncionalidadSonido("boton").start();
+                } catch (IOException e) {
+                        // TODO Auto-generated catch block
+                        e.printStackTrace();
+                }
+        }
+
+        public void sonidoError() {
+                try {
+                        new FuncionalidadSonido("error").start();
+                } catch (IOException e) {
+                        e.printStackTrace();
+                }
+
+        }
+
+        public void sonidoDialogo() {
+                try {
+                        new FuncionalidadSonido("dialogo").start();
+                } catch (IOException e) {
+                        // TODO Auto-generated catch block
+                        e.printStackTrace();
+                }
+        }
+
+        public void sonidoInicial() {
+                try {
+                        new FuncionalidadSonido("inicio").start();
+                } catch (IOException e) {
+                        // TODO Auto-generated catch block
+                        e.printStackTrace();
+                }
+
+        }
+
+}
